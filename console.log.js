@@ -59,7 +59,7 @@
 
     var gOldConsoleLog = window.console.log;//backup
 
-    // if(DEBUG_MODE && _isMobile || _isiPad ) {
+    if(DEBUG_MODE && _isMobile || _isiPad ) {
 		window.console.log = console.log = function() {
 			for(var key in arguments){
 				var item = arguments[key];
@@ -76,7 +76,7 @@
 				var list = CL.ol.appendChild(li);
 			}
 		}
-	// }
+	}
 
 	window.onerror = function (msg, url, lineNumber, column){
 		console.log({
