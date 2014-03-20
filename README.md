@@ -19,7 +19,9 @@ top of all the scripts, and then the console.log.js
 
 ##Features##
 
-Light weight
-No dependencies
+* Light weight
+* No dependencies
+* can be used for Desktop also.
+
 ##Issues##
 Put issues here
