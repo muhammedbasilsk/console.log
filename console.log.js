@@ -2,6 +2,10 @@
 	window.CL = {
 		wrapper: (function(){
 			var wrapper = document.createElement('div');
+			wrapper.setAttribute('id', 'console-log-wrapper');
+			var style = 'position: fixed; top: 2%; left: 10%; right: 10%; border: 1px solid rgb(218, 201, 201);';
+			style += ' background-color:rgba(250, 250, 250, 0.5); height: 50%; z-index: 999999';
+			wrapper.setAttribute('style', style);
 			return wrapper;
 		})(),
 		header: (function() {
@@ -9,16 +13,30 @@
 			var title = document.createElement('h1');
 			var titleTextContent = document.createTextNode('console.log');
 
+			var titleStyle = 'margin: 0px; padding: 0px!important; font-size: 1em;'
+			title.setAttribute('style', titleStyle);
+
 			title.appendChild(titleTextContent);
 			header.appendChild(title);
+			header.setAttribute('id', 'console-log-wrapper-header');
+			
+			var headerStyle = 'text-align: center; border-bottom: 1px inset #0f4568;';
+			headerStyle += ' background-color: rgba(6, 29, 44, 0.5);';
+			header.setAttribute('style', headerStyle);
 			return header;
 		})(),
 		content: (function() {
 			var content = document.createElement('section');
+			content.setAttribute('id', 'console-log-wrapper-content');
+			var style = 'height: 100%; overflow: auto;';
+			content.setAttribute('style', style);
 			return content;
 		})(),
 		ol: (function(){
 			var ol = document.createElement('ol');
+			ol.setAttribute('id', 'console-log-wrapper-content-list');
+			var style = 'float: left; margin-left: 3%'
+			ol.setAttribute('style', style);
 			return ol;
 		})(),
 		list: (function(){
@@ -41,7 +59,7 @@
 
     var gOldConsoleLog = window.console.log;//backup
 
-    if(DEBUG_MODE && _isMobile || _isiPad ) {
+    // if(DEBUG_MODE && _isMobile || _isiPad ) {
 		window.console.log = console.log = function() {
 			for(var key in arguments){
 				var item = arguments[key];
@@ -58,7 +76,7 @@
 				var list = CL.ol.appendChild(li);
 			}
 		}
-	}
+	// }
 
 	window.onerror = function (msg, url, lineNumber, column){
 		console.log({
