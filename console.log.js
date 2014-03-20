@@ -1,11 +1,11 @@
 (function (window) {		
 	window.CL = {
 		wrapper: (function(){
-			var wrapper = document.createElement('section');
+			var wrapper = document.createElement('div');
 			return wrapper;
 		})(),
 		header: (function() {
-			var header = document.createElement('section');
+			var header = document.createElement('div');
 			var title = document.createElement('h1');
 			var titleTextContent = document.createTextNode('console.log');
 
@@ -17,9 +17,18 @@
 			var content = document.createElement('section');
 			return content;
 		})(),
-		init: function() {
+		ol: (function(){
+			var ol = document.createElement('ol');
+			return ol;
+		})(),
+		list: (function(){
+			var list = document.createElement('li');
+			return list;
+		})(),
+		init: function() {			
 			this.wrapper.appendChild(this.header);
-			this.wrapper.appendChild(this.content);
+			this.content.appendChild(this.ol);
+			this.wrapper.appendChild(this.content);			
 			return this.wrapper;
 		}
 	};
@@ -32,7 +41,7 @@
 
     var gOldConsoleLog = window.console.log;//backup
 
-    //if(_isMobile || _isiPad ) {
+    if(DEBUG_MODE && _isMobile || _isiPad ) {
 		window.console.log = console.log = function() {
 			for(var key in arguments){
 				var item = arguments[key];
@@ -42,14 +51,22 @@
 				}else if(typeof item === "function") {
 					out = item.toString();
 				}
+				
 				out = document.createTextNode(out);
-				CL.content.appendChild(out)
+				var li = document.createElement('li');
+				li.appendChild(out);
+				var list = CL.ol.appendChild(li);
 			}
 		}
-	// }
+	}
 
 	window.onerror = function (msg, url, lineNumber, column){
-		console.log(msg, url, lineNumber, column);
+		console.log({
+			msg: msg,
+			url: url,
+			lineNumber: lineNumber,
+			column: column
+		});
 	}
 
 	window.onload = function() {
