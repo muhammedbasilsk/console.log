@@ -3,7 +3,7 @@
 		wrapper: (function(){
 			var wrapper = document.createElement('div');
 			wrapper.setAttribute('id', 'console-log-wrapper');
-			var style = 'position: fixed; top: 2%; left: 10%; right: 10%; border: 1px solid rgb(218, 201, 201);';
+			var style = 'position: fixed; bottom: 0; width:100%; border: 1px solid rgb(218, 201, 201);';
 			style += ' background-color:rgba(250, 250, 250, 0.5); height: 50%; z-index: 999999';
 			wrapper.setAttribute('style', style);
 			return wrapper;
@@ -26,7 +26,7 @@
 			return header;
 		})(),
 		content: (function() {
-			var content = document.createElement('section');
+			var content = document.createElement('div');
 			content.setAttribute('id', 'console-log-wrapper-content');
 			var style = 'height: 100%; overflow: auto;';
 			content.setAttribute('style', style);
