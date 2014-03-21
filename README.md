@@ -24,4 +24,6 @@ top of all the scripts, and then the console.log.js
 * can be used for Desktop also.
 
 ##Issues##
-Put issues here
+Put issues [here]
+
+[here]: https://github.com/muhammedbasilsk/console.log/issues
