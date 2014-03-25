@@ -3,6 +3,8 @@ console.log
 
 This is a simple plugin which tries to make console logging possible in tablets and Smart phones.
 
+[Demo]
+
 ##How to use it?##
 
     <script type="text/javascript">
@@ -27,3 +29,4 @@ top of all the scripts, and then the console.log.js
 Put issues [here]
 
 [here]: https://github.com/muhammedbasilsk/console.log/issues
+[Demo]: http://muhammedbasilsk.github.io/console.log/
